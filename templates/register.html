@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1069951518637314048/1319491649210159126/ai.ico?ex=676627dc&is=6764d65c&hm=4d0e2fbab04462236e1b938fd657b63477c00278a3fe5e4f4320104b1bd99aea&" type="image/x-icon" />
+  <title>Solvyze AI | Register</title>
+ <style>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url("https://cdn.discordapp.com/attachments/1069951518637314048/1319493286141886495/v960-ning-05.jpg?ex=67662962&is=6764d7e2&hm=7f6180c8a827b807e975bef36df47b8c12b4f9afd7f0a99749444542743cdc5c&")
+    no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form-box {
+  position: relative;
+  width: 400px;
+  height: auto; /* Menyesuaikan tinggi berdasarkan isi */
+  padding: 20px; /* Menambah ruang dalam kotak */
+  background: rgba(255, 255, 255, 0.2); /* Glassmorphism efek */
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column; /* Susun elemen vertikal */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Tambah bayangan */
+}
+
+h2 {
+  font-size: 2em;
+  color: black;
+  text-align: center;
+  margin-bottom: 20px; /* Jarak antara h2 dan elemen lainnya */
+}
+
+
+.inputbox {
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label {
+  top: -5px;
+}
+input:valid ~ label {
+  top: -5px;
+}
+
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: black;
+}
+
+.inputbox ion-icon {
+  position: absolute;
+  right: 8px;
+  color: black;
+  font-size: 1.2em;
+  top: 20px;
+}
+
+.forget {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 15px;
+  font-size: 0.9em;
+  color: black;
+}
+
+.forget label:nth-child(2) {
+  order: 1;
+}
+
+.forget label {
+  display: flex;
+  align-items: center;
+}
+
+.forget label input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.forget label a {
+  color: black;
+  text-decoration: none;
+}
+
+.forget label a:hover {
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.register {
+  font-size: 0.9em;
+  color: black;
+  text-align: center;
+  margin: 25px 0 10px;
+}
+
+.register p a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.register p a:hover {
+  text-decoration: underline;
+}
+
+ </style>
+</head>
+<body>
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="inputbox">
+          <ion-icon name="person-outline"></ion-icon>
+          <input type="text" name="display_name" required>
+          <label for="">Full Name</label>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="text" name="username" required>
+          <label for="">Username</label>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input type="password" name="password" required>
+          <label for="">Password</label>
+        </div>
+        <div class="inputbox">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input type="password" name="confirm_password" required>
+          <label for="">Confirm Password</label>
+        </div>
+        <div class="forget">
+          <label>
+            <input type="checkbox" name="tnc" required> I agree to the terms and condition
+          </label>
+        </div>
+        <button type="submit">Register</button>
+        <div class="register">
+          <p>Already have an account? <a href="{{url_for('login')}}">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
+<script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.getElementById('registerForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/su', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        Swal.fire({
+          icon: 'success',
+          title: result.message || 'Registration Successful',
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          window.location.href = '{{ url_for("chat") }}';
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: result.error || 'Registration Failed',
+          text: result.detail || '',
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Something went wrong',
+        text: error.message,
+      });
+    }
+  });
+</script>
+</body>
+</html>
