@@ -24,7 +24,7 @@ SOLVYZE AI adalah aplikasi ai chat dengan menggunakan API dari GEMINI by GOOGLE.
    source venv/bin/activate  # Untuk macOS/Linux
    venv\Scripts\activate   # Untuk Windows
    ```
-4. **Penginstallan Dependencies
+4. **Penginstallan Dependencies**
     ```bash
    pip install -r requirements.txt
    ```
